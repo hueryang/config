@@ -1,0 +1,9 @@
+[user]
+	name = hueryang
+	email = hueryang@sensetime.com
+[pull]
+	rebase = true
+[merge]
+	ff = only
+[alias]
+	log1 = log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset)%C(auto)%d%C(reset) %C(normal)%s%C(reset) %C(italic magenta)%an%C(reset) %C(italic dim blue)(%ar)%C(reset)' --all
