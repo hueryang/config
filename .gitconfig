@@ -3,7 +3,47 @@
 	email = hueryang@sensetime.com
 [pull]
 	rebase = true
-[merge]
-	ff = only
+[push]
+    autoSetupRemote = true
+[rebase]
+    autoStash = true
 [alias]
-	log1 = log --graph --abbrev-commit --decorate --format=format:'%C(yellow)%h%C(reset)%C(auto)%d%C(reset) %C(normal)%s%C(reset) %C(italic magenta)%an%C(reset) %C(italic dim blue)(%ar)%C(reset)' --all
+    lg = log  --graph --abbrev-commit --decorate --pretty=format:'%C(yellow)%h%C(reset)%C(auto)%d%C(reset) %C(normal)%s%C(reset) %C(blue)(%an)%C(reset) %C(green)<%ar>%C(reset)'
+	lga = log  --graph --abbrev-commit --decorate --pretty=format:'%C(yellow)%h%C(reset)%C(auto)%d%C(reset) %C(normal)%s%C(reset) %C(blue)(%an)%C(reset) %C(green)<%ar>%C(reset)' --all
+	graph = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	co = checkout
+    land = "!f() { git add -u :/ && git commit $@ && git push; }; f $@"
+[merge]
+    conflictstyle = diff3
+[merge "lfs-text"]
+    name = LFS text file merge driver
+    driver = merge_lfs_text_file %O %A %B %L %P
+[lfs]
+    url = https://lfs.sensetime.com/
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+    process = git-lfs filter-process
+    required = true
+    smudge = git-lfs smudge -- %f
+[color "decorate"]
+    HEAD = cyan bold
+    branch = magenta
+    tag = yellow
+    remoteBranch = magenta
+[advice]
+    addIgnoredFile = false
+[core]
+    editor = vim
+    pager = delta
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[diff]
+    colorMoved = default
+    renameLimit = 0    # don't limit the number of rename/copy detection
+[diff "lfs-text"]
+    textconv = cat
+[interactive]
+    diffFilter = delta --color-only
+[credential]
+    helper = "!f() { /home/hueryang/.vscode-server/bin/b58957e67ee1e712cebf466b995adf4c5307b2bd/node /tmp/vscode-remote-containers-12cf58a5-9b82-401c-bcc8-c3e067d1af3b.js git-credential-helper $*; }; f"
