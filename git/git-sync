@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# If this is the `master` branch, just `git pull` and exit. If this is a
+# non-`master` branch, squash the commits and rebase on top of the latest
+# `origin/master`.
+
+set -bueo pipefail
+
+# Get the current branch name.
+readonly BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+# Input from commandline argument, default to `master`,
+readonly MASTER=${1:-master}
+
+# If it is detached, exit.
+if [[ "${BRANCH}" == "HEAD" ]]; then
+    echo "The HEAD is detached. Exiting."
+    exit 0
+fi
+
+# If it is `master`, just `git pull` and exit.
+if [[ "${BRANCH}" == "${MASTER}" ]]; then
+    echo "The current branch is ${MASTER}. Just git pull and exit."
+    git pull --rebase
+    exit 0
+fi
+
+# If it is not ${MASTER}, squash the commits and rebase on top of the latest
+# `origin/${MASTER}`.
+echo "\
+The current branch is ${BRANCH}.
+Squash the commits and rebase on top of the latest origin/${MASTER}."
+
+# If the workspace is not clean, stash everything, including untracked files.
+if [[ -n "$(git status --porcelain)" ]]; then
+    echo "The workspace is not clean. Stash everything, including untracked files."
+    git stash --include-untracked
+    # Register a trap to pop the stash if the script exits.
+    trap "git stash pop" EXIT
+fi
+
+git fetch origin "${MASTER}"
+readonly MERGE_BASE=$(git merge-base HEAD origin/${MASTER})
+git reset --soft "${MERGE_BASE}"
+git add :/
+# Use -n to skip the pre-commit hooks. This process must be non-interactively.
+git commit -n -m "[GENERATED] squash ${BRANCH} before rebasing onto origin/${MASTER}"
+
+echo "Successfully squashed the commits on ${BRANCH} into a single commit."
+
+echo "Rebasing onto origin/${MASTER}."
+
+# If the rebase fails, aborts the rebase and restore the workspace.
+if ! git rebase origin/${MASTER}; then
+    echo "Rebase failed due to merge conflict. Aborting the rebase and restore the workspace."
+    git rebase --abort
+    echo "To rebase, run the following command:"
+    echo "  git rebase origin/${MASTER}"
+    echo "NOTE: You'd have to manually resolve conflicts."
+    exit 1
+fi
