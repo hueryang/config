@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xbel>
+<xbel xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info" xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks" xmlns:kdepriv="http://www.kde.org/kdepriv" dbusName="konsole">
+ <bookmark href="ssh://root@10.8.10.1">
+  <title>root on 10.8.10.1</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name=""/>
+   </metadata>
+  </info>
+ </bookmark>
+ <bookmark href="ssh://yixiangrui@10.9.66.109">
+  <title>yixiangrui on 10.9.66.109</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name=""/>
+   </metadata>
+  </info>
+ </bookmark>
+ <bookmark href="file:///home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/higgs/higgs-rm-service">
+  <title>higgs-rm-service</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name=""/>
+   </metadata>
+  </info>
+ </bookmark>
+ <bookmark href="file:///home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/higgs/higgs-rm-lifecycle-service">
+  <title>higgs-rm-lifecycle-service</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name=""/>
+   </metadata>
+  </info>
+ </bookmark>
+ <bookmark href="file://hueryang-pc/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/higgs/higgs-rm-lifecycle-service">
+  <title>higgs-rm-lifecycle-service</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name=""/>
+   </metadata>
+  </info>
+ </bookmark>
+ <bookmark href="file:///home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli">
+  <title>sco-cli</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name=""/>
+   </metadata>
+  </info>
+ </bookmark>
+</xbel>
