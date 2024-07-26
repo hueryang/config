@@ -1,0 +1,44 @@
+QTabBar,
+QTabBar::tab
+{
+    /* font-family: "Source Code Pro for Powerline";
+    font-size: 16px;
+    height: 20px;
+    padding: 0px;
+    border: 0px;
+    background-color: #1d1919;
+    color: white; */
+    font-size: 15px;
+    width: 50px;
+    height: 20px;
+    padding: 2px;
+    border: 2px;
+    background-color: rgb(35,38,39);
+    border-color: yellowgreen;
+    color:yellowgreen;
+}
+
+/* QTabBar::tab:hover
+{
+    text-decoration: underline;
+}
+
+QTabBar::tab:selected
+{
+    font-weight: bold;
+    color: yellow;
+    padding: 0px;
+    border: 0px;
+    background-color: #444444;
+} */
+
+/*  */
+QTabBar::tab:hover
+{
+    background-color:aqua;
+}
+QTabBar::tab:selected {
+    background-color:indianred ;
+}
+
+/*  */
