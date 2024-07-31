@@ -10,9 +10,9 @@ QTabBar::tab
     color: white; */
     font-size: 15px;
     width: 50px;
-    height: 20px;
+    height: 22px;
     padding: 2px;
-    border: 2px;
+    border: 0px;
     background-color: rgb(35,38,39);
     border-color: yellowgreen;
     color:yellowgreen;
