@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli'
+let g:netrw_dirhist_6='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco'
+let g:netrw_dirhist_5='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli'
+let g:netrw_dirhist_4='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli/cmd/sco/cmd'
+let g:netrw_dirhist_3='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli/cmd/sco'
+let g:netrw_dirhist_2='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli/cmd'
+let g:netrw_dirhist_1='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli'
+let g:netrw_dirhist_0='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli/pkg'
+let g:netrw_dirhist_9='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli'
+let g:netrw_dirhist_8='/home/hueryang/go/src/gitlab.bj.sensetime.com/elementary/sco/sco-cli/pkg/installation'
